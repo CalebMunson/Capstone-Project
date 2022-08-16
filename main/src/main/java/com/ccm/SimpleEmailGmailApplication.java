@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 
+import com.ccm.email.EmailSenderService;
+
 @SpringBootApplication
 public class SimpleEmailGmailApplication {
 	@Autowired
@@ -13,11 +15,5 @@ public class SimpleEmailGmailApplication {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SimpleEmailGmailApplication.class, args);
-	}
-	@EventListener(ApplicationReadyEvent.class)
-	public void sendMail() {
-		senderService.sendEmail("couchdroids@gmail.com", 
-				"This is Subject",
-				"This is Body of email");
 	}
 }
